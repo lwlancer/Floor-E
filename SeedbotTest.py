@@ -42,7 +42,7 @@ def runDC(pingroup, duty, direction, duration):
 	setup(pingroup)
 	if direction == 1:
 		io.output(i1, True)
-		9io.output(i2, False)
+		io.output(i2, False)
 	elif direction == 2:
 		io.output(i1, False)
 		io.output(i2, True)
