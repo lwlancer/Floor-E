@@ -52,5 +52,16 @@ def runDC(pingroup, duty, direction, duration):
 	io.output(e1, True)
 	sleep(duration)
 	io.output(e1, False)
-	pwm.stop
+	pwm.stop()
+	io.cleanup()
+def runServo(pingroup, angle, duration):
+	setup(pingroup)
+	io.output(i1, True)
+	io.output(i2, False)
+	freq = angle/18 + 2.5
+	io.output(e1, True)
+	pwm.ChangeDutyCycle(freq)
+	sleep(duration)
+	io.output(e1, False)
+	pwm.stop()
 	io.cleanup()
