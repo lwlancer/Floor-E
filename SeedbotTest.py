@@ -36,6 +36,8 @@ def setup(group):
 		e1 = 32
 	forward = 1 
 	reverse = 2
+	DC = 1
+	Servo = 2
 	pwm=io.PWM(e1, 50)
 	pwm.start(0)
 def runDC(pingroup, duty, direction, duration):
@@ -54,14 +56,28 @@ def runDC(pingroup, duty, direction, duration):
 	io.output(e1, False)
 	pwm.stop()
 	io.cleanup()
-def runServo(pingroup, angle, duration):
+def runServo(pingroup, angle):
 	setup(pingroup)
 	io.output(i1, True)
 	io.output(i2, False)
-	freq = angle/18 + 2.5
+	freq = angle * .05520268341422 + 2.029955093436
 	io.output(e1, True)
 	pwm.ChangeDutyCycle(freq)
-	sleep(duration)
+	sleep(1)
 	io.output(e1, False)
 	pwm.stop()
 	io.cleanup()
+def run(DCorSERVO, pingroup, duration, angle, duty, direction)
+	if DCorSERVO == 1:
+		runDC(pingroup, duty, direction, duration)
+	elif DCorSERVO == 2:
+		runServo(pingroup, angle)
+	else:
+		print("Unrecognized Input Detected")
+def run2(pingroup1, angle1, pingroup2, angle2)
+	runServo(pingroup1, angle1)
+	runServo(pingroup2, angle2)
+def run3(pingroup1, angle1, pingroup2, angle2, pingroup3, angle3)
+	runServo(pingroup1, angle1)
+	runServo(pingroup2, angle2)
+	runServo(pingroup3, angle3)
