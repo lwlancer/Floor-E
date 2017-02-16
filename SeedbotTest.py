@@ -58,8 +58,6 @@ def runDC(pingroup, duty, direction, duration):
 	io.cleanup()
 def runServo(pingroup, angle):
 	setup(pingroup)
-	io.output(i1, True)
-	io.output(i2, False)
 	freq = angle * .05520268341422 + 2.029955093436
 	io.output(e1, True)
 	pwm.ChangeDutyCycle(freq)
