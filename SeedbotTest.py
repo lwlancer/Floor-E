@@ -59,8 +59,16 @@ def setup(group, mtype):
 			global e1 = 32
       		else:
       			print("Error at DC pin setup")
+		global io.setup(i1, io.OUT)
+		global io.setup(i2, io.OUT)
+		global io.setup(e1, io.OUT)
+		global pwm=io.PWM(e1, 50)
+		global pwm.start(0)
       	elif mtype == 2:
       		global e1 = group
+		global io.setup(e1, io.OUT)
+		global pwm=io.PWM(e1, 50)
+		global pwm.start(0)
 	elif mtype == 3:
 		if group == 1:
 			global a1 = 3
@@ -94,10 +102,13 @@ def setup(group, mtype):
 			global e1 = 38
 		else:
 			print("Error at Stepper pin setup")
+		global io.setup(a1, io.OUT)
+		global io.setup(a2, io.OUT)
+		global io.setup(b1, io.OUT)
+		global io.setup(b2, io.OUT)
+		global io.setup(e1, io.OUT)
 	else:
 		print("Error at motor type selection")
-	global pwm=io.PWM(e1, 50)
-	global pwm.start(0)
 def runDC(pingroup, duty, direction, duration):
 	setup(pingroup)
 	if direction == 1:
