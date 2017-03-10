@@ -45,9 +45,9 @@ def counterstep(delay, steps):
         setStep(True, False, True, False)
         sleep(delay)
 
-def go():
-    delay = raw_input("Delay (in milliseconds)?")
-    steps = raw_input("Steps Forward?")
+while True:
+    delay = raw_input("Delay (in milliseconds):")
+    steps = raw_input("Steps Forward:")
     clockstep(int(delay) / 1000.0, int(steps))
-    steps = raw_input("Steps Backward?")
+    steps = raw_input("Steps Backward:")
     counterstep(int(delay) / 1000.0, int(steps))
