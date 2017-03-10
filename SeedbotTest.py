@@ -1,45 +1,45 @@
 def setup(group):
-	import RPi.GPIO as io 
-	from time import sleep
-	io.setmode(io.BOARD)
+	global import RPi.GPIO as io 
+	global from time import sleep
+	global io.setmode(io.BOARD)
 	if group == 1:
-		i1 = 3
-		i2 = 5
-		e1 = 7
+		global i1 = 3
+		global i2 = 5
+		global e1 = 7
 	elif group == 2:
-		i1 = 11
-		i2 = 13
-		e1 = 15
+		global i1 = 11
+		global i2 = 13
+		global e1 = 15
 	elif group == 3:
-		i1 = 19
-		i2 = 21
-		e1 = 23
+		global i1 = 19
+		global i2 = 21
+		global e1 = 23
 	elif group == 4:
-		i1 = 29
-		i2 = 31
-		e1 = 33
+		global i1 = 29
+		global i2 = 31
+		global e1 = 33
 	elif group == 5:
-		i1 = 8
-		i2 = 10
-		e1 = 12
+		global i1 = 8
+		global i2 = 10
+		global e1 = 12
 	elif group == 6:
-		i1 = 22
-		i2 = 24
-		e1 = 26
+		global i1 = 22
+		global i2 = 24
+		global e1 = 26
 	elif group == 7:
-		i1 = 36
-		i2 = 38
-		e1 = 40
+		global i1 = 36
+		global i2 = 38
+		global e1 = 40
 	elif group == 8:
-		i1 = 35
-		i2 = 37
-		e1 = 32
-	forward = 1 
-	reverse = 2
-	DC = 1
-	Servo = 2
-	pwm=io.PWM(e1, 50)
-	pwm.start(0)
+		global i1 = 35
+		global i2 = 37
+		global e1 = 32
+	global forward = 1 
+	global reverse = 2
+	global DC = 1
+	global Servo = 2
+	global pwm=io.PWM(e1, 50)
+	global pwm.start(0)
 def runDC(pingroup, duty, direction, duration):
 	setup(pingroup)
 	if direction == 1:
