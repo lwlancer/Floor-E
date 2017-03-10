@@ -130,10 +130,43 @@ def runServo(pingroup, angle):
 	freq = angle / 18 + 2
 	io.output(e1, True)
 	pwm.ChangeDutyCycle(freq)
-	sleep(1)
+	sleep(.5)
 	io.output(e1, False)
 	pwm.stop()
 	io.cleanup()
+	
+def setsteps(n1, n2, n3, n4):
+	io.output(a1, n1)
+	io.output(a2, n2)
+	io.output(b1, n3)
+	io.output(b2, n4)
+	
+def runStepper(pingroup, delay, steps):
+	if steps > 0:
+		for i in range(0, steps):
+			setsteps(1,0,1,0)
+			sleep(delay)
+			setsteps(0,1,1,0)
+			sleep(delay)
+			setsteps(0,1,0,1)
+			sleep(delay)
+			setsteps(1,0,0,1)
+			sleep(delay)
+	elif steps < 0:
+		steps = abs(steps)
+		for i in range(0, steps)
+			setsteps(1,0,0,1)
+			sleep(delay)
+			setsteps(0,1,0,1)
+			sleep(delay)
+			setsteps(0,1,1,0)
+			sleep(delay)
+			setsteps(1,0,1,0)
+			sleep(delay)
+	elif steps == 0:
+		print("You dumb")
+	else:
+		print("Error at step analyzer:")
 def run(motortype, pingroup, duration, angle, duty, direction, delay, steps)
 	if motortype == 1:
 		runDC(pingroup, duty, direction, duration)
