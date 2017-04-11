@@ -5,7 +5,7 @@ exit = False
 while exit == False:
   c = readchar.readchar()
   key = readchar.readkey()
-  if key == w:
+  if key == 'w':
     print("Forward Pressed:")
   elif key == 'a':
     print("Left Pressed:")
@@ -15,3 +15,6 @@ while exit == False:
     print("Right Pressed:")
   elif key == 'q':
     quit()
+    break
+  else:
+    print("Unrecognized Keypress")
