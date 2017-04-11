@@ -14,7 +14,7 @@ while exit == False:
   elif key == 'd':
     print("Right Pressed:")
   elif key == 'q':
-    quit()
+    exit = True
     break
   else:
     print("Unrecognized Keypress")
