@@ -46,7 +46,7 @@ def calculate_w_vectors(v_x, v_y):
 	global w1
 	global w2
 	global w3
-	w1 = - vx
+	w1 = - v_x
 	w2 = 0.5 * v_x - sqrt3o2 * v_y
 	w3 = 0.5 * v_x + sqrt3o2 * v_y
 	if w1 < 0:
