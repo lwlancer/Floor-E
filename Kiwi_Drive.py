@@ -46,6 +46,9 @@ def calculate_w_vectors(v_x, v_y):
 	global w1
 	global w2
 	global w3
+	global w1_ccw
+	global w2_ccw
+	global w3_ccw
 	w1 = - v_x
 	w2 = 0.5 * v_x - sqrt3o2 * v_y
 	w3 = 0.5 * v_x + sqrt3o2 * v_y
@@ -61,7 +64,7 @@ def calculate_w_vectors(v_x, v_y):
 		w3_ccw = True
 	elif w3 >= 0:
 		w3_ccw = False
-def go(degree, time)
+def go(time):
 	get_angle()
 	calculate_xy_vectors(theta)
 	calculate_w_vectors(vx, vy)
@@ -70,32 +73,32 @@ def go(degree, time)
 			io.output(m1i1, False)
 			io.output(m1i2, True)
 			io.output(m1e1, True)
-			pwm1.ChangeDutyCycle(w1)
+			pwm1.ChangeDutyCycle(abs(w1) * 100)
 		elif w1_ccw is False:
 			io.output(m1i1, True)
 			io.output(m1i2, False)
 			io.output(m1e1, True)
-			pwm1.ChangeDutyCycle(w1)
+			pwm1.ChangeDutyCycle(abs(w1) * 100)
 		if w2_ccw is True:
 			io.output(m2i1, False)
 			io.output(m2i2, True)
 			io.output(m2e1, True)
-			pwm2.ChangeDutyCycle(w2)
+			pwm2.ChangeDutyCycle(abs(w2) * 100)
 		elif w2_ccw is False:
 			io.output(m2i1, True)
 			io.output(m2i2, False)
 			io.output(m2e1, True)
-			pwm2.ChangeDutyCycle(w2)
+			pwm2.ChangeDutyCycle(abs(w2) * 100)
 		if w3_ccw is True:
 			io.output(m3i1, False)
 			io.output(m3i2, True)
 			io.output(m3e1, True)
-			pwm3.ChangeDutyCycle(w3)
+			pwm3.ChangeDutyCycle(abs(w3) * 100)
 		elif w3_ccw is False:
 			io.output(m3i1, True)
 			io.output(m3i2, False)
 			io.output(m3e1, True)
-			pwm3.ChangeDutyCycle(w3)
+			pwm3.ChangeDutyCycle(abs(w3) * 100)
 		sleep(1)
 	pwm1.stop()
 	pwm2.stop()
@@ -104,4 +107,5 @@ def go(degree, time)
 	io.output(m2e1, False)
 	io.output(m3e1, False)
 	io.cleanup()
+
 	
