@@ -1,6 +1,8 @@
 import RPi.GPIO as io
 from time import sleep
 import keyboard
+io.setmode(io.BOARD)
+io.setwarnings(False)
 
 #Left Drive Output Bus Setup
 io.setup(8, io.OUT)            #Left Drive PWM
@@ -17,7 +19,7 @@ io.setup(24, io.OUT)           #Right Drive E1
 io.setup(26, io.OUT)           #Right Drive E2
 
 #Servo PWM Setup
-io.setup(16, io.out)
+io.setup(16, io.OUT)
 pwm_servo=io.PWM(16, 50)
 pwm_servo.start(16)
 
@@ -67,8 +69,14 @@ keyboard.add_hotkey('s', reverse_full)  # 's' key for reverse full speed
 keyboard.add_hotkey('a', turn_left)     # 'a' key for turn left
 keyboard.add_hotkey('d', turn_right)    # 'd' key for turn right
 
+#Testing
+forward_full()
+sleep(10)
+reverse_full()
+sleep(10)
+
 #Run the robot
-keyboard.wait('esc')  # Wait for the 'esc' key to exit
+#keyboard.wait('esc')  # Wait for the 'esc' key to exit
 
 #Stop and Cleanup
 pwm_left.stop()
